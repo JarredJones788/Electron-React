@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain, ipcRenderer } from "electron"
+import { BrowserWindow, ipcMain  } from "electron"
 
 export default class Application {
     private mainWindow: BrowserWindow;

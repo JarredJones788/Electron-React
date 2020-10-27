@@ -1,4 +1,4 @@
-import { AppBar, IconButton, makeStyles, Toolbar } from '@material-ui/core';
+import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
 
 import CancelTwoToneIcon from '@material-ui/icons/CancelTwoTone';
@@ -28,6 +28,9 @@ const useStyles = makeStyles({
     },
     minimizeBtn: {
         color: 'green'
+    },
+    title: {
+        marginLeft: '1em',
     }
 })
 
@@ -41,6 +44,9 @@ export default function TopBar(props: IProps) {
     return (
         <AppBar className={classes.root} position="static" elevation={0}>
             <Toolbar className={classes.toolBar}>
+                <Typography variant="h6" className={classes.title}>
+                    My App
+                </Typography>
                 <div className={classes.grow}></div>
                 <IconButton onClick={() => { ipcRenderer.send('app_minimize', null) }} className={classes.minimizeBtn} >
                     <RemoveIcon />
