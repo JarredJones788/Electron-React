@@ -14,7 +14,13 @@ const tryConnection = () => {
     if (!startedElectron) {
       console.log('starting electron')
       startedElectron = true
-      exec('npm run electron')
+      const electron = exec('npm run electron')
+      if (electron.stdout !== null) {
+        electron.stdout.on('data', (data) => {
+          console.log(data)
+        })
+      }
+
     }
   })
 }

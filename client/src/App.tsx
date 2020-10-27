@@ -1,15 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import './App.css';
+import TopBar from './components/topBar/topBar';
+import Home from './pages/home/home';
+import Login from './pages/login/login';
 
-const { ipcRenderer } = window.require('electron');
+export default function App() {
 
-function App() {
   return (
     <div className="App">
-      <h1>Hello this has been Updated!</h1>
-      <button onClick={() => { ipcRenderer.send('test', 'ping'); }}>Test</button>
+      <BrowserRouter>
+        <Route render={(props: any) => <TopBar history={props.history} />} />
+        <Switch>
+          <Route path="/" render={(props: any) => <Home history={props.history} />} exact />
+          <Route path="/login" render={(props: any) => <Login history={props.history} />} exact />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
