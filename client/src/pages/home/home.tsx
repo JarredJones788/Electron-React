@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
 
 interface IProps {
@@ -9,8 +8,7 @@ export default function Home(props: IProps) {
 
     return (
         <div>
-            <h1>THIS IS HOMEPAGE</h1>
-            <Button onClick={() => { props.history.push('/login') }}>Go To Login</Button>
+            <h1>THIS IS HOME PAGE</h1>
         </div>
     );
 }

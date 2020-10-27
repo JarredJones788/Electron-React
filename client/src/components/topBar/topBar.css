@@ -1,0 +1,8 @@
+.draggable-top-bar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
+  
+  .draggable-top-bar-btn {
+    -webkit-app-region: no-drag;
+  }

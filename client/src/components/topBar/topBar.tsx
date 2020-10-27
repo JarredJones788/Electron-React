@@ -5,12 +5,15 @@ import CancelTwoToneIcon from '@material-ui/icons/CancelTwoTone';
 import FullscreenTwoToneIcon from '@material-ui/icons/FullscreenTwoTone';
 import RemoveIcon from '@material-ui/icons/Remove';
 
+import './topBar.css'
+
 const { ipcRenderer } = window.require('electron');
 
 const useStyles = makeStyles({
     root: {
         background: '#003049',
         height: "44px",
+        zIndex: 999
     },
     toolBar: {
         paddingLeft: "0",
@@ -42,19 +45,19 @@ export default function TopBar(props: IProps) {
     const classes = useStyles()
 
     return (
-        <AppBar className={classes.root} position="static" elevation={0}>
+        <AppBar className={`draggable-top-bar ${classes.root}`} position="fixed" elevation={0}>
             <Toolbar className={classes.toolBar}>
                 <Typography variant="h6" className={classes.title}>
                     My App
                 </Typography>
                 <div className={classes.grow}></div>
-                <IconButton onClick={() => { ipcRenderer.send('app_minimize', null) }} className={classes.minimizeBtn} >
+                <IconButton onClick={() => { ipcRenderer.send('app_minimize', null) }} className={`draggable-top-bar-btn ${classes.minimizeBtn}`} >
                     <RemoveIcon />
                 </IconButton>
-                <IconButton onClick={() => { ipcRenderer.send('app_fullscreen', null) }} className={classes.fullScreenBtn} >
+                <IconButton onClick={() => { ipcRenderer.send('app_fullscreen', null) }} className={`draggable-top-bar-btn ${classes.fullScreenBtn}`} >
                     <FullscreenTwoToneIcon />
                 </IconButton>
-                <IconButton onClick={() => { ipcRenderer.send('app_exit', null) }} className={classes.closeBtn} >
+                <IconButton onClick={() => { ipcRenderer.send('app_exit', null) }} className={`draggable-top-bar-btn ${classes.closeBtn}`} >
                     <CancelTwoToneIcon />
                 </IconButton>
             </Toolbar>

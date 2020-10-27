@@ -13,7 +13,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    frame: true
+    frame: false
   })
 
   mainWindow.loadURL(
