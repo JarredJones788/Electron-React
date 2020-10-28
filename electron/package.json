@@ -2,10 +2,8 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "nodemon": "^2.0.6"
-  },
   "devDependencies": {
+    "nodemon": "^2.0.6",
     "@types/node": "^12.19.1",
     "electron": "^10.1.5",
     "electron-builder": "^22.9.1",
@@ -14,7 +12,6 @@
     "typescript": "^3.7.3"
   },
   "main": "./dist/entry/start.js",
-  "homepage": "./",
   "scripts": {
     "build": "tsc && @powershell Copy-item -Force -Recurse -Path './../client/build/' -Destination './dist/client/build/' && electron-builder --win --publish never",
     "electron": "electron -r ts-node/register ./src/entry/start.ts",
@@ -22,7 +19,7 @@
   },
   "build": {
     "appId": "com.example.MyApp",
-    "compression": "normal",
+    "compression": "maximum",
     "productName": "MyApp",
     "win": {},
     "files": [
@@ -33,23 +30,5 @@
       "buildResources": "./dist",
       "output": "./output"
     }
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
